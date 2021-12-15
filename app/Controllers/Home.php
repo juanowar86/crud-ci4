@@ -6,7 +6,13 @@ class Home extends BaseController
 {
     public function index()
     {
-        return view('welcome_message');
+        $this->dataToView['titlePage'] = 'Home';
+
+        $viewsArray[] = 'front/front_head';
+        $viewsArray[] = 'front/home';
+        $viewsArray[] = 'front/front_footer';
+    
+        $this->view_composer( $viewsArray );
     }
 
     public function catalog()

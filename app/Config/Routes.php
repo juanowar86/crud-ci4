@@ -48,9 +48,10 @@ $routes->get( '/admin/list/(:alpha)', 'Adminpanel::list' );
 $routes->get( '/admin/login/', 'Adminpanel::login' );
 $routes->post( '/admin/do_login/', 'Adminpanel::do_login' );
 
-$routes->get( '/admin/item/view/(:alpha)/(:num)', 'Itemcontroller::view' );
-$routes->post( '/admin/item/edit/(:alpha)/', 'Itemcontroller::login' );
-$routes->post( '/admin/item/delete/(:alpha)', 'Itemcontroller::login' );
+$routes->get( '/admin/item/view/(:alpha)/(:num)', 'Itemcrud::view' );
+$routes->add( '/admin/item/add/(:alpha)', 'Itemcrud::add' );
+$routes->post( '/admin/item/edit/(:alpha)/', 'Itemcrud::login' );
+$routes->post( '/admin/item/delete/(:alpha)', 'Itemcrud::login' );
 
 /*
  * --------------------------------------------------------------------

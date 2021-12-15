@@ -38,6 +38,13 @@ class BaseController extends Controller
     protected $helpers = [];
 
     /**
+     * Para datos que necesite en la vista.
+     * 
+     * @var array
+     */
+    protected $dataToView = [];
+
+    /**
      * Constructor.
      */
     public function initController(RequestInterface $request, ResponseInterface $response, LoggerInterface $logger)
@@ -48,5 +55,25 @@ class BaseController extends Controller
         // Preload any models, libraries, etc, here.
 
         // E.g.: $this->session = \Config\Services::session();
+    }
+
+    // Flexibilizo la creación de vistas sin importar el número de componentes, se debe vigilar el orden.
+    protected function view_composer( $viewsList = array() )
+    {
+        if( empty( $viewsList ) )
+        {            
+            // return view('errors/error_404');
+            $this->dataToView['title'] = 'Error - Required view';
+            $this->dataToView['message'] = 'Warning! BaseController::view_composer requires array of views.';
+            echo view('errors/html/error_custom', $this->dataToView );
+        }
+        else
+        {
+            foreach ( $viewsList as $key => $view ) 
+            {
+                // Con solo pasar una vez basta
+                echo ( $key == 0 )? view( $view, $this->dataToView ): view( $view );
+            }
+        }
     }
 }

@@ -31,7 +31,26 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::index');
+
+// FRONT
+$routes->get( '/', 'Home::index' );
+$routes->add( '/catalog', 'Home::catalog' );
+$routes->post( '/login', 'Home::login' );
+$routes->post( '/do_login', 'Home::do_login' );
+$routes->get( '/cart', 'Home::cart' );
+
+$routes->add( '/profile', 'Userprofile::index' );
+$routes->post( '/profile/edit', 'Userprofile::edit' );
+
+// BACK
+$routes->get( '/admin', 'Adminpanel::index' );
+$routes->get( '/admin/list/(:alpha)', 'Adminpanel::list' );
+$routes->get( '/admin/login/', 'Adminpanel::login' );
+$routes->post( '/admin/do_login/', 'Adminpanel::do_login' );
+
+$routes->get( '/admin/item/view/(:alpha)/(:num)', 'Itemcontroller::view' );
+$routes->post( '/admin/item/edit/(:alpha)/', 'Itemcontroller::login' );
+$routes->post( '/admin/item/delete/(:alpha)', 'Itemcontroller::login' );
 
 /*
  * --------------------------------------------------------------------

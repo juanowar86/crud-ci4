@@ -8,4 +8,24 @@ class Home extends BaseController
     {
         return view('welcome_message');
     }
+
+    public function catalog()
+    {
+        return view('welcome_message');
+    }
+
+    public function login()
+    {
+        return view('welcome_message');
+    }
+
+    public function do_login()
+    {
+        return view('welcome_message');
+    }
+
+    public function cart()
+    {
+        return view('welcome_message');
+    }
 }

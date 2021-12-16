@@ -45,6 +45,13 @@ class BaseController extends Controller
     protected $dataToView = [];
 
     /**
+     * Permite controlar que tablas pueden usarse para el crud, nombre de la tabla
+     * 
+     * @var array
+     */
+    protected $allowItemCrud = ['films'];
+
+    /**
      * Constructor.
      */
     public function initController(RequestInterface $request, ResponseInterface $response, LoggerInterface $logger)

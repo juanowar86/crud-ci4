@@ -1,36 +1,56 @@
-<!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
-<html>
+<div class="container d-flex justify-content-center">
+<div class="row">
+    <form class="row g-3 needs-validation border rounded p-5" novalidate method="post" action="<?php echo base_url( $actionURI ); ?>">
+        <legend><?php echo $title; ?></legend>
+        
+        <?php if( isset( $idItem ) ) : ?>
+            <div class="col-lg-12 col-md-12">
+                <label for="name" class="form-label">ID </label>
+                <input type="text" class="form-control" value="<?php echo $idItem; ?>" disabled>
+            </div>
+            <input type="hidden" id="id" name="id" value="<?php echo $idItem; ?>">
+        <?php endif; ?>
+        
+        <div class="col-lg-6 col-md-4">
+            <label for="name" class="form-label">Film Name</label>
+            <input type="text" class="form-control" id="name" name="name" value="<?php echo ( isset( $resultQuery['name'] ) ) ? $resultQuery['name']: ''; ?>" required>
+            <div class="invalid-feedback">
+                Write the name
+            </div>
+        </div>
+        
+        <div class="col-lg-6 col-md-4">
+            <label for="year" class="form-label">Film Year</label>
+            <input type="number" class="form-control" min="1900" max="2050" step="1" id="year" name="year" value="<?php echo ( isset( $resultQuery['year'] ) ) ? $resultQuery['year']: '2000'; ?>">
+        </div>
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title><?php echo $titlePage; ?></title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <div class="col-lg-6 col-md-4">
+            <label for="director" class="form-label">Film Director</label>
+            <input type="text" class="form-control" id="director" name="director" value="<?php echo ( isset( $resultQuery['director'] ) ) ? $resultQuery['director']: 'alguien'; ?>" required>
+            <div class="invalid-feedback">
+                Write director
+            </div>
+        </div>
 
-    <link rel="apple-touch-icon" sizes="180x180" href="<?php echo base_url('assets/img/favicon/apple-touch-icon.png');?>">
-    <link rel="icon" type="image/png" sizes="32x32" href="<?php echo base_url('assets/img/favicon/favicon-32x32.png');?>">
-    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url('assets/img/favicon/favicon-16x16.png');?>">
-    <link rel="manifest" href="<?php echo base_url('assets/img/favicon//site.webmanifest'); ?>">
+        <div class="col-lg-6 col-md-4">
+            <label for="stock" class="form-label">Stock</label>
+            <input type="number" class="form-control" min="0" max="100" step="1" id="stock" name="stock" value="<?php echo ( isset( $resultQuery['stock'] ) ) ? $resultQuery['stock']: '1'; ?>" required>
+            <div class="invalid-feedback">
+                Insert number
+            </div>
+        </div>
 
-    <link rel="stylesheet" href="<?php echo base_url('assets/bootstrap/css/bootstrap.min.css'); ?>">
-    <link rel="stylesheet" href="<?php echo base_url('assets/DataTables/datatables.min.css'); ?>">
-    <link rel="stylesheet" href="<?php echo base_url('assets/bootstrap/css/main.css'); ?>">
+        <div class="col-lg-12 col-md-8">
+            <label for="synopsis" class="form-label">Synopsis</label>    
+            <textarea class="form-control" name="synopsis" id="synopsis" cols="30" rows="8"><?php echo ( isset( $resultQuery['synopsis'] ) ) ? $resultQuery['synopsis']: 'No Data'; ?></textarea>
+        </div>   
 
-    <script src="<?php echo base_url('assets/bootstrap/js/bootstrap.bundle.min.js'); ?>"></script>
-</head>
-    <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-<body>
-    
-    <script src="<?php echo base_url('assets/jquery/jquery-3.6.0.min.js'); ?>"></script>
-    <script src="<?php echo base_url('assets/DataTables/datatables.min.js'); ?>"></script>
-    <script src="<?php echo base_url('assets/js/main.js'); ?>"></script>
-</body>
+        <!-- retorno -->
+        <input class="d-none" id="return" name="return" value="<?php echo $return; ?>">
 
-</html>
+        <div class="col-12">
+            <button class="btn btn-primary" type="submit"><?php echo $btnText; ?></button>
+        </div>
+    </form>
+    </div>
+</div>

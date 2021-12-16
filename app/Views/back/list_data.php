@@ -1,19 +1,19 @@
 
 <div class="container mt-4">
-    <h1>TESTING VIEW - CI4 table load</h1>
+    <h1>TESTING VIEW - table load</h1>
 
     <div class="d-flex justify-content-end">
-        <a href="<?php echo site_url('admin/item/type/add') ?>" class="btn btn-primary">Add a Reg</a>
+        <a href="<?php echo site_url('admin/item/add/'.$type) ?>" class="btn btn-primary">Add a Reg</a>
     </div>
 
     <div class="mt-3">
         <table class="table table-bordered" id="table-list">
             <thead>
                 <tr>
-                    <th>User Id</th>
+                    <th>Id</th>
                     <th>Name</th>
-                    <th>Email</th>
-                    <th>Address</th>
+                    <th>Year</th>
+                    <th>Director</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -21,13 +21,13 @@
                 <?php if ( isset( $dataToTable) && !empty( $dataToTable ) ) : ?>
                     <?php foreach ( $dataToTable as $row ) : ?>
                         <tr>
-                            <td><?php echo $row['id']; ?></td>
+                            <td><?php echo $row['id_film']; ?></td>
                             <td><?php echo $row['name']; ?></td>
-                            <td><?php echo $row['email']; ?></td>
-                            <td><?php echo $row['address']; ?></td>
+                            <td><?php echo $row['year']; ?></td>
+                            <td><?php echo $row['director']; ?></td>
                             <td>
-                                <a href="<?php echo base_url('editnames/' . $row['id']); ?>" class="btn btn-warning">Edit</a>
-                                <a href="<?php echo base_url('delete/' . $row['id']); ?>" class="btn btn-danger">Delete</a>
+                                <a href="<?php echo base_url( 'admin/item/view/films/' . $row['id_film'] ); ?>" class="btn btn-warning">View/Edit</a>
+                                <a href="#" class="btn btn-danger">Delete</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>

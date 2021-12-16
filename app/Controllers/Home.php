@@ -6,32 +6,26 @@ class Home extends BaseController
 {
     public function index()
     {
-        $this->dataToView['titlePage'] = 'Home';
-
-        $viewsArray[] = 'front/front_head';
-        $viewsArray[] = 'front/home';
-        $viewsArray[] = 'front/front_footer';
-    
-        $this->view_composer( $viewsArray );
+        return view( 'common/working_on' );
     }
 
     public function catalog()
     {
-        return view('welcome_message');
+        return view( 'common/working_on' );
     }
 
     public function login()
     {
-        return view('welcome_message');
+        return view( 'common/working_on' );
     }
 
     public function do_login()
     {
-        return view('welcome_message');
+        return view( 'common/working_on' );
     }
 
     public function cart()
     {
-        return view('welcome_message');
+        return view( 'common/working_on' );
     }
 }

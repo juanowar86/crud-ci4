@@ -6,12 +6,12 @@ class Userprofile extends BaseController
 {
     public function index()
     {
-        return view('welcome_message');
+        return view( 'common/working_on' );
     }
 
     public function edit()
     {
-        return view('welcome_message');
+        return view( 'common/working_on' );
     }
   
 }

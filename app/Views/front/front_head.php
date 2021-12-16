@@ -19,7 +19,7 @@
 
     <link rel="stylesheet" href="<?php echo base_url('assets/bootstrap/css/bootstrap.min.css'); ?>">
     <link rel="stylesheet" href="<?php echo base_url('assets/DataTables/datatables.min.css'); ?>">
-    <link rel="stylesheet" href="<?php echo base_url('assets/bootstrap/css/main.css'); ?>">
+    <link rel="stylesheet" href="<?php echo base_url('assets/css/main.css'); ?>">
 
     <script src="<?php echo base_url('assets/bootstrap/js/bootstrap.bundle.min.js'); ?>"></script>
 </head>
@@ -29,9 +29,3 @@
 <body>
 
 
-<script src="<?php echo base_url('assets/jquery/jquery-3.6.0.min.js'); ?>"></script>
-    <script src="<?php echo base_url('assets/DataTables/datatables.min.js'); ?>"></script>
-    <script src="<?php echo base_url('assets/js/main.js'); ?>"></script>
-</body>
-
-</html>
